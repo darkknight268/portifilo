@@ -23,18 +23,16 @@ body{
 }
 
 header{
-    margin-top: 20px;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 9%;
-    background-color: transparent;
-    filter: drop-shadow(10px);
+    padding: 2rem 9%;
+    background: rgba(0,0,0,0.8);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .logo{
@@ -65,50 +63,19 @@ nav a.active{
 }
 
 @media(max-width:995px){
-
-    header{
-        flex-direction: column;
-        padding: 2rem;
-    }
-
     nav{
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        margin-top: 2rem;
-        background: transparent;
-        border: none;
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #161616;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
     }
-
-    nav a{
-        margin: 1rem;
-        font-size: 1.6rem;
-    }
-
-    .home{
-        flex-direction: column;
-        text-align: center;
-        margin-top: 12rem;
-    }
-
-    .home-content h1{
-        font-size: 4rem;
-    }
-
-    .home-content h3{
-        font-size: 2.5rem;
-    }
-
-    .home-img img{
-        width: 70vw;
-    }
-
-    .heading{
-        font-size: 3.5rem;
-    }
-}
 
     nav.active{
         display: block;
@@ -134,11 +101,13 @@ section{
 }
 
 .home{
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 8rem;
-    background-color: black;
+    justify-content: center;
+    gap: 6rem;
+    padding-top: 12rem;
+    background: black;
 }
 
 .home .home-content h1{
@@ -427,4 +396,52 @@ span{
 
 .contact-box a:hover{
     text-decoration:underline;
+}
+
+@media (max-width: 995px){
+
+    header{
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    nav{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    nav a{
+        margin: 0;
+        font-size: 1.6rem;
+    }
+
+    .home{
+        flex-direction: column;
+        text-align: center;
+        padding-top: 20rem;
+        gap: 4rem;
+    }
+
+    .home-img img{
+        width: 80vw;
+        max-width: 350px;
+    }
+
+    .home-content h1{
+        font-size: 4rem;
+    }
+
+    .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .social-icons{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }

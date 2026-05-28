@@ -65,19 +65,50 @@ nav a.active{
 }
 
 @media(max-width:995px){
-    nav{
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid #b74b4b;
-        border-bottom: 3px solid #b74b4b;
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: #161616;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
+
+    header{
+        flex-direction: column;
+        padding: 2rem;
     }
+
+    nav{
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin-top: 2rem;
+        background: transparent;
+        border: none;
+    }
+
+    nav a{
+        margin: 1rem;
+        font-size: 1.6rem;
+    }
+
+    .home{
+        flex-direction: column;
+        text-align: center;
+        margin-top: 12rem;
+    }
+
+    .home-content h1{
+        font-size: 4rem;
+    }
+
+    .home-content h3{
+        font-size: 2.5rem;
+    }
+
+    .home-img img{
+        width: 70vw;
+    }
+
+    .heading{
+        font-size: 3.5rem;
+    }
+}
 
     nav.active{
         display: block;

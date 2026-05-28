@@ -1,11 +1,33 @@
-
-<!-- SKILLS SECTION -->
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills | Hruthik</title>
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
 
-<section id="skills" class="skills">
+<header>
+    <a href="index.html" class="logo">Hruthik</a>
+
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="halloffame.html">Hall Of Fames</a>
+        <a href="writeups.html">Writeup's</a>
+        <a href="skills.html" class="active">Skills</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section id="skills" class="skills" style="padding-top:12rem;">
 
     <h2 class="heading">My <span>Skills</span></h2>
 
@@ -43,14 +65,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     </div>
 
-    <header>
-
-    <a href="index.html" class="logo">Hruthik</a>
-
-    <nav>
-        <a href="index.html">Home</a>
-    </nav>
-
-</header>
-
 </section>
+
+<script>
+function toggleNav(){
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('open');
+}
+document.querySelectorAll('#nav-menu a').forEach(function(link){
+    link.addEventListener('click', function(){
+        document.getElementById('nav-menu').classList.remove('open');
+    });
+});
+</script>
+
+</body>
+</html>

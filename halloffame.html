@@ -1,0 +1,546 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall Of Fame | Hruthik</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    border:none;
+    outline:none;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    font-size:62.5%;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#000;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    padding:2rem 9%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:1000;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:3rem;
+    font-weight:800;
+    color:#b74b4b;
+}
+
+nav a{
+    margin-left:4rem;
+    color:white;
+    font-size:1.8rem;
+    font-weight:500;
+    transition:.3s;
+    border-bottom:3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color:#b74b4b;
+    border-bottom:3px solid #b74b4b;
+}
+
+/* HERO */
+
+.hero{
+    padding-top:15rem;
+    text-align:center;
+    margin-bottom:6rem;
+}
+
+.hero h1{
+    font-size:6rem;
+    margin-bottom:1rem;
+}
+
+.hero span{
+    color:#b74b4b;
+}
+
+.hero p{
+    font-size:1.8rem;
+    color:#bdbdbd;
+}
+
+/* GRID */
+
+.hof-container{
+    width:100%;
+    padding:0 9% 8rem;
+}
+
+.hof-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:3rem;
+}
+
+/* CARD */
+
+.card{
+    background:#111;
+    border:1px solid rgba(183,75,75,0.2);
+    border-radius:2rem;
+    padding:2.5rem;
+    transition:.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(183,75,75,0.4);
+}
+
+.title{
+    font-size:2.2rem;
+    font-weight:700;
+    margin-bottom:1.5rem;
+    color:white;
+}
+
+.desc{
+    font-size:1.5rem;
+    color:#bdbdbd;
+    line-height:1.7;
+    margin-bottom:2rem;
+}
+
+.meta{
+    display:flex;
+    flex-wrap:wrap;
+    gap:1rem;
+    margin-bottom:2rem;
+}
+
+.badge{
+    padding:.7rem 1.5rem;
+    border-radius:5rem;
+    background:rgba(183,75,75,0.15);
+    color:#b74b4b;
+    font-size:1.3rem;
+    font-weight:600;
+}
+
+.link{
+    display:inline-block;
+    padding:1rem 2.5rem;
+    border-radius:5rem;
+    border:2px solid #b74b4b;
+    color:#b74b4b;
+    font-size:1.5rem;
+    font-weight:600;
+    transition:.3s ease;
+}
+
+.link:hover{
+    background:#b74b4b;
+    color:black;
+    box-shadow:0 0 25px #b74b4b;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:3rem;
+    font-size:1.5rem;
+    color:#bdbdbd;
+}
+
+/* MOBILE */
+
+@media(max-width:995px){
+
+    html{
+        font-size:55%;
+    }
+
+    header{
+        padding:2rem 5%;
+    }
+
+    nav a{
+        margin-left:2rem;
+        font-size:1.5rem;
+    }
+
+    .hero h1{
+        font-size:4.5rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html" class="logo">Hruthik</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="halloffame.html" class="active">Hall Of Fame</a>
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <h1>Hall <span>Of Fame</span></h1>
+
+    <p>
+        Recognized by Leading Organizations Worldwide
+    </p>
+
+</section>
+
+<section class="hof-container">
+
+<div class="hof-grid">
+
+<!-- CARD START -->
+
+ <!-- Bugcrowd Hall-of-Fame entries -->
+<article class="card" data-delay="0">
+
+  <div class="title">Lenovo — Responsible Disclosure (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Responsible Disclosure program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">Responsible Disclosure</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/lenovoresponsibledisclosure/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="120">
+  <div class="title">HSBC VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">Banking</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/hsbc-vdp-pro/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+
+<article class="card" data-delay="160">
+  <div class="title">Cengage VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">Education</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/cengage-vdp/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+
+<article class="card" data-delay="240">
+  <div class="title">University of Melbourne VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/uni-melbourne-vdp/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="360">
+  <div class="title">University of Canterbury VDP (Bugcrowd)</div>
+  <div class="desc">
+    Hall of Fame — Vulnerability Disclosure Program via Bugcrowd for the University of Canterbury
+  </div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">University</span>
+  </div>
+  <a class="link"
+     href="https://bugcrowd.com/engagements/university-canterbury-vdp-pro/hall_of_fames"
+     target="_blank">
+     View Proof →
+  </a>
+</article>
+
+<article class="card" data-delay="280">
+  <div class="title">AB InBev VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">Corporate</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/abinbev-vdp/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="280">
+  <div class="title">AB InBev VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">Corporate</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/abinbev-vdp/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="320">
+  <div class="title">Newfold Dreamscape VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/newfold-dreamscape-vdp/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+
+
+<article class="card" data-delay="200">
+  <div class="title">State of California VDP (Bugcrowd)</div>
+  <div class="desc">
+    Hall of Fame — Vulnerability Disclosure Program for the State of California via Bugcrowd
+  </div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">Government</span>
+  </div>
+  <a class="link"
+     href="https://bugcrowd.com/engagements/cdt-vdp-pro/hall_of_fames"
+     target="_blank">
+     View Proof →
+  </a>
+</article>
+
+<article class="card" data-delay="520">
+  <div class="title">CIBC VDP (Bugcrowd)</div>
+  <div class="desc">
+    Hall of Fame — Vulnerability Disclosure Program acknowledgment via Bugcrowd
+  </div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">Banking</span>
+  </div>
+  <a class="link"
+     href="https://bugcrowd.com/engagements/cibc-vdp/hall_of_fames"
+     target="_blank">
+     View Proof →
+  </a>
+</article>
+
+
+
+<article class="card" data-delay="320">
+  <div class="title">Square (Bugcrowd)</div>
+  <div the="desc">Hall of Fame — Bugcrowd program acknowledgment</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">Program</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/square/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="440">
+  <div class="title">Unilever VDP (Bugcrowd)</div>
+  <div class="desc">
+    Hall of Fame — Vulnerability Disclosure Program via Bugcrowd for Unilever
+  </div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+    <span>—</span>
+    <span class="badge">Corporate</span>
+  </div>
+  <a class="link"
+     href="https://bugcrowd.com/engagements/unilever-vdp/hall_of_fames"
+     target="_blank">
+     View Proof →
+  </a>
+</article>
+
+<article class="card" data-delay="80">
+  <div class="title">NSF VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/nsf-vdp/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="160">
+  <div class="title">FWS VDP (Bugcrowd)</div>
+  <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
+  <div class="meta">
+    <span class="badge">Bugcrowd</span>
+    <span>—</span>
+    <span class="badge">VDP</span>
+  </div>
+  <a class="link" href="https://bugcrowd.com/engagements/fws-vdp/hall_of_fames" target="_blank">View Proof →</a>
+</article>
+
+<!-- End Bugcrowd entries -->
+
+<article class="card" data-delay="200">
+  <div class="title">Sony (HackerOne)</div>
+  <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
+  <div class="meta">
+    <span class="badge">HackerOne</span>
+    <span>—</span>
+    <span class="badge">Hall of Fame</span>
+    <span>—</span>
+    <span class="badge">2026</span>
+  </div>
+  <a class="link" href="https://hackerone.com/sony/thanks/2026" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="240">
+  <div class="title">Allegion (HackerOne)</div>
+  <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
+  <div class="meta">
+    <span class="badge">HackerOne</span>
+    <span>—</span>
+    <span class="badge">Hall of Fame</span>
+    <span>—</span>
+    <span class="badge">2026</span>
+  </div>
+  <a class="link" href="https://hackerone.com/allegion/thanks/2026" target="_blank">View Proof →</a>
+</article>
+
+
+<article class="card" data-delay="400">
+  <div class="title">Itaú Unibanco (HackerOne)</div>
+  <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
+  <div class="meta">
+    <span class="badge">HackerOne</span>
+    <span>—</span>
+    <span class="badge">Hall of Fame</span>
+  </div>
+  <a class="link" href="https://hackerone.com/itau_unibanco/thanks" target="_blank">
+    View Proof →
+  </a>
+</article>
+
+
+<article class="card" data-delay="360">
+  <div class="title">Broadcom</div>
+  <div class="desc">Security Thanks & Recognition for responsible disclosure</div>
+  <div class="meta">
+    <span class="badge">Corporate</span>
+    <span>—</span>
+    <span class="badge">Security</span>
+  </div>
+  <a class="link" href="https://www.broadcom.com/support/security-center/security-thanks" target="_blank">View Proof →</a>
+</article>
+
+<article class="card" data-delay="640"><div class="title">Accenture</div><div class="desc">Disclosure acknowledgment</div><div class="meta"><span class="badge">Consulting</span><span>—</span></div><a class="link" href="https://accenture.responsibledisclosure.com/hc/en-us/articles/360040573233-Acknowledgments" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="400"><div class="title">BASF</div><div class="desc">Disclosure Recognition</div><div class="meta"><span class="badge">Corporate</span><span>—</span></div><a class="link" href="https://www.basf.com/global/en/legal/responsible-disclosure-statement" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="560"><div class="title">F5 Networks</div><div class="desc">Security acknowledgment</div><div class="meta"><span class="badge">Vendor</span><span>—</span></div><a class="link" href="https://my.f5.com/manage/s/article/K75282801" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="80"><div class="title">BT (British Telecom)</div><div class="desc">Security Hall of Fame</div><div class="meta"><span class="badge">Hall of Fame</span><span>—</span></div><a class="link" href="https://www.bt.com/about/contact-bt/responsible-disclosure/hall-of-fame" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="480"><div class="title">University of Twente</div><div class="desc">Cyber Safety HoF</div><div class="meta"><span class="badge">University</span><span>—</span></div><a class="link" href="https://www.utwente.nl/en/cyber-safety/responsible/hall-of-fame/" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="160"><div class="title">TU Delft</div><div class="desc">Responsible disclosure</div><div class="meta"><span class="badge">University</span><span>—</span></div><a class="link" href="https://www.tudelft.nl/en/hall-of-fame" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="240"><div class="title">United Nations</div><div class="desc">UN Hall of Fame</div><div class="meta"><span class="badge">UN</span><span>—</span></div><a class="link" href="https://unite.un.org/en/un-information-security-hall-fame" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="280">
+  <div class="title">U.S. Department of Health and Human Services (HHS)</div>
+  <div class="desc">
+    Valid vulnerabilities responsibly disclosed and acknowledged by the U.S. Department of Health and Human Services
+  </div>
+  <div class="meta">
+    <span class="badge">Government</span>
+    <span>—</span>
+    <span class="badge">Responsible Disclosure</span>
+    <span>—</span>
+    <span class="badge">USA</span>
+  </div>
+  <a class="link"
+     href="https://hhs.responsibledisclosure.com/hc/en-us/articles/1500000280921-Acknowledgments"
+     target="_blank">
+     View Proof →
+  </a>
+</article>
+ 
+<article class="card" data-delay="0"><div class="title">Coret Genealogie</div><div class="desc">Responsible Disclosure acknowledgment</div><div class="meta"><span class="badge">Responsible Disclosure</span><span>—</span></div><a class="link" href="https://genealogie.coret.org/en/beleid/responsible_disclosure.php" target="_blank">View Proof →</a></article>
+
+<article class="card" data-delay="320"><div class="title">CERT-EU</div><div class="desc">EU CERT HoF</div><div class="meta"><span class="badge">CERT</span><span>—</span></div><a class="link" href="https://www.cert.europa.eu/hall-of-fame" target="_blank">View Proof →</a></article>
+
+</section>
+
+<!-- CARD END -->
+
+
+<!-- DUPLICATE MORE CARDS BELOW -->
+
+</div>
+
+</section>
+
+<footer>
+
+    © 2026 Hruthik | Ethical Hacker
+
+</footer>
+
+</body>
+</html>
+```

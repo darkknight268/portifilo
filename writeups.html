@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Writeups | Hruthik</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration:none;
+    border:none;
+    outline:none;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    font-size:62.5%;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:black;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:2rem 9%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.8);
+    backdrop-filter:blur(10px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:3rem;
+    font-weight:800;
+    color:#b74b4b;
+}
+
+nav a{
+    margin-left:4rem;
+    font-size:1.8rem;
+    color:white;
+    transition:0.3s ease;
+    border-bottom:3px solid transparent;
+}
+
+nav a:hover,
+nav a.active{
+    color:#b74b4b;
+    border-bottom:3px solid #b74b4b;
+}
+
+/* PAGE HEADER */
+
+.page-header{
+    text-align:center;
+    margin-top:15rem;
+    margin-bottom:6rem;
+}
+
+.page-header h1{
+    font-size:6rem;
+    color:white;
+}
+
+.page-header span{
+    color:#b74b4b;
+}
+
+.page-header p{
+    font-size:1.8rem;
+    color:#bdbdbd;
+    margin-top:1rem;
+}
+
+/* WRITEUP CARDS */
+
+.writeups-container{
+    padding:0 9% 8rem;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:3rem;
+}
+
+.writeup-card{
+    background:#111;
+    border:2px solid rgba(183,75,75,0.2);
+    border-radius:2rem;
+    padding:3rem;
+    transition:0.3s ease;
+}
+
+.writeup-card:hover{
+    transform:translateY(-10px);
+    border-color:#b74b4b;
+    box-shadow:0 0 25px rgba(183,75,75,0.4);
+}
+
+.writeup-card i{
+    font-size:5rem;
+    color:#b74b4b;
+    margin-bottom:2rem;
+}
+
+.writeup-card h2{
+    font-size:2.6rem;
+    margin-bottom:1.5rem;
+}
+
+.writeup-card p{
+    font-size:1.5rem;
+    line-height:1.8;
+    color:#bdbdbd;
+    margin-bottom:2rem;
+}
+
+.writeup-card a{
+    display:inline-block;
+    padding:1rem 2.5rem;
+    border-radius:5rem;
+    border:2px solid #b74b4b;
+    color:#b74b4b;
+    font-size:1.5rem;
+    font-weight:600;
+    transition:0.3s ease;
+}
+
+.writeup-card a:hover{
+    background:#b74b4b;
+    color:black;
+    box-shadow:0 0 25px #b74b4b;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:3rem;
+    font-size:1.5rem;
+    color:#bdbdbd;
+}
+
+/* MOBILE */
+
+@media(max-width:995px){
+
+    html{
+        font-size:55%;
+    }
+
+    header{
+        padding:2rem 5%;
+    }
+
+    nav a{
+        margin-left:2rem;
+        font-size:1.5rem;
+    }
+
+    .page-header h1{
+        font-size:4.5rem;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <a href="index.html" class="logo">Hruthik</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="halloffame.html">Hall Of Fame</a>
+        <a href="writeups.html" class="active">Writeups</a>
+    </nav>
+
+</header>
+
+<section class="page-header">
+
+    <h1>Security <span>Writeups</span></h1>
+
+    <p>
+        Vulnerability Research, Exploitation & Real World Findings
+    </p>
+
+</section>
+
+<section class="writeups-container">
+
+    <!-- WRITEUP CARD -->
+
+    <div class="writeup-card">
+
+        <i class="fa-solid fa-bug"></i>
+
+        <h2>
+            The XSS That Wasn't There Until I Turned Back
+        </h2>
+
+        <p>
+            A detailed writeup of a unique reflected XSS vulnerability
+            involving back-navigation behavior and browser caching.
+        </p>
+
+        <a href="https://medium.com/@darknight268/the-xss-that-wasnt-there-until-i-turned-back-352ae297bd6e"
+        target="_blank">
+
+        Read Writeup →
+
+        </a>
+
+    </div>
+
+    <!-- ADD MORE WRITEUPS BELOW -->
+
+
+</section>
+
+</body>
+</html>
+```

@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Writeups | Hruthik</title>
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -41,27 +38,38 @@ header{
     top:0;
     left:0;
     width:100%;
-    padding:2rem 9%;
+    padding:1.5rem 9%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.85);
     backdrop-filter:blur(10px);
     z-index:1000;
 }
 
 .logo{
-    font-size:3rem;
+    font-size:2.6rem;
     font-weight:800;
     color:#b74b4b;
+    white-space:nowrap;
+    flex-shrink:0;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:3rem;
+    flex-wrap:wrap;
 }
 
 nav a{
-    margin-left:4rem;
-    font-size:1.8rem;
     color:white;
+    font-size:1.6rem;
+    font-weight:500;
     transition:0.3s ease;
     border-bottom:3px solid transparent;
+    padding-bottom:0.3rem;
+    white-space:nowrap;
 }
 
 nav a:hover,
@@ -70,12 +78,35 @@ nav a.active{
     border-bottom:3px solid #b74b4b;
 }
 
+/* HAMBURGER */
+
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    padding:4px;
+    flex-shrink:0;
+}
+
+.hamburger span{
+    display:block;
+    width:25px;
+    height:3px;
+    background:#b74b4b;
+    border-radius:3px;
+    transition:.3s ease;
+    color:unset;
+}
+
 /* PAGE HEADER */
 
 .page-header{
     text-align:center;
-    margin-top:15rem;
+    padding-top:13rem;
     margin-bottom:6rem;
+    padding-left:9%;
+    padding-right:9%;
 }
 
 .page-header h1{
@@ -134,7 +165,7 @@ nav a.active{
     margin-bottom:2rem;
 }
 
-.writeup-card a{
+.writeup-card a.read-link{
     display:inline-block;
     padding:1rem 2.5rem;
     border-radius:5rem;
@@ -145,7 +176,7 @@ nav a.active{
     transition:0.3s ease;
 }
 
-.writeup-card a:hover{
+.writeup-card a.read-link:hover{
     background:#b74b4b;
     color:black;
     box-shadow:0 0 25px #b74b4b;
@@ -160,26 +191,81 @@ footer{
     color:#bdbdbd;
 }
 
+/* TABLET */
+
+@media(max-width:992px){
+    html{ font-size:56%; }
+    header{ padding:1.5rem 5%; }
+    nav{ gap:2rem; }
+    .page-header h1{ font-size:4.5rem; }
+}
+
 /* MOBILE */
 
-@media(max-width:995px){
+@media(max-width:768px){
 
-    html{
-        font-size:55%;
-    }
+    html{ font-size:55%; }
 
     header{
-        padding:2rem 5%;
+        padding:1.5rem 5%;
+        flex-wrap:wrap;
+        gap:0;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+
+    nav{
+        display:none;
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:1.5rem;
+        padding:1.5rem 0 1rem;
+    }
+
+    nav.open{
+        display:flex;
     }
 
     nav a{
-        margin-left:2rem;
-        font-size:1.5rem;
+        font-size:1.6rem;
+        width:100%;
+        padding-bottom:0.5rem;
+        border-bottom:1px solid rgba(183,75,75,0.2);
+    }
+
+    nav a:last-child{
+        border-bottom:none;
+    }
+
+    .page-header{
+        padding-top:11rem;
     }
 
     .page-header h1{
-        font-size:4.5rem;
+        font-size:3.8rem;
     }
+
+    .page-header p{
+        font-size:1.6rem;
+    }
+
+    .writeups-container{
+        padding:0 5% 6rem;
+        grid-template-columns:1fr;
+        gap:2rem;
+    }
+
+    .writeup-card h2{
+        font-size:2.2rem;
+    }
+}
+
+@media(max-width:480px){
+    html{ font-size:52%; }
+    .page-header h1{ font-size:3.2rem; }
 }
 
 </style>
@@ -192,54 +278,52 @@ footer{
 
     <a href="index.html" class="logo">Hruthik</a>
 
-    <nav>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav id="nav-menu">
         <a href="index.html">Home</a>
+        <a href="halloffame.html">Hall Of Fames</a>
         <a href="writeups.html" class="active">Writeups</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
     </nav>
 
 </header>
 
 <section class="page-header">
-
     <h1>Security <span>Writeups</span></h1>
-
-    <p>
-        Vulnerability Research, Exploitation & Real World Findings
-    </p>
-
+    <p>Vulnerability Research, Exploitation & Real World Findings</p>
 </section>
 
 <section class="writeups-container">
 
-    <!-- WRITEUP CARD -->
-
     <div class="writeup-card">
-
         <i class="fa-solid fa-bug"></i>
-
-        <h2>
-            The XSS That Wasn't There Until I Turned Back
-        </h2>
-
-        <p>
-            A detailed writeup of a unique reflected XSS vulnerability
-            involving back-navigation behavior and browser caching.
-        </p>
-
-        <a href="https://medium.com/@darknight268/the-xss-that-wasnt-there-until-i-turned-back-352ae297bd6e"
-        target="_blank">
-
-        Read Writeup →
-
-        </a>
-
+        <h2>The XSS That Wasn't There Until I Turned Back</h2>
+        <p>A detailed writeup of a unique reflected XSS vulnerability involving back-navigation behavior and browser caching.</p>
+        <a class="read-link" href="https://medium.com/@darknight268/the-xss-that-wasnt-there-until-i-turned-back-352ae297bd6e" target="_blank">Read Writeup →</a>
     </div>
 
-    <!-- ADD MORE WRITEUPS BELOW -->
-
+    <!-- ADD MORE WRITEUP CARDS BELOW -->
 
 </section>
 
+
+<script>
+function toggleNav(){
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('open');
+}
+document.querySelectorAll('#nav-menu a').forEach(function(link){
+    link.addEventListener('click', function(){
+        document.getElementById('nav-menu').classList.remove('open');
+    });
+});
+</script>
+
 </body>
 </html>
-```

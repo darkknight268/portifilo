@@ -12,32 +12,76 @@
     <header>
         <a href="#" class="logo">Hruthik</a>
 
-        <nav>
-            <a href="#" class="active"> Home</a>
+        <div class="hamburger" id="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <nav id="nav-menu">
+            <a href="#" class="active">Home</a>
             <a href="halloffame.html">Hall Of Fames</a>
             <a href="writeups.html">Writeup's</a>
-            <a href="skills.html" >Skills</a>
-            <a href="contact.html" >Contact</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
+
     <section class="home">
         <div class="home-img">
-            <img src="main.jpg" alt="">
+            <img src="main.jpg" alt="Hruthik">
         </div>
         <div class="home-content">
             <h1>Hi, It's <span>Hruthik</span></h1>
-            <h3 class="typing-text">I'm a <span></span></h3>
-            <p> Ethical Hacker & VAPT Engineer specializing in Web, API, Android, and Network Security Testing. Recognized by 30+ organizations including Sony, HSBC, Lenovo, Broadcom, and the United Nations for responsible disclosure and security research.
-</p>
+            <h3 class="typing-text">I'm a <span id="typed-text"></span><span class="typed-cursor">|</span></h3>
+            <p>Ethical Hacker & VAPT Engineer specializing in Web, API, Android, and Network Security Testing. Recognized by 30+ organizations including Sony, HSBC, Lenovo, Broadcom, and the United Nations for responsible disclosure and security research.</p>
             <div class="social-icons">
-                <a href="https://www.linkedin.com/in/aluri-hruthik-a47271258
-"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/aluri-hruthik-a47271258" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="https://x.com/hruthik_Hacker"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.instagram.com/the_dark_knight_soldier"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://x.com/hruthik_Hacker" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.instagram.com/the_dark_knight_soldier" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <a href="#" class="btn">Hire me</a>
+            <a href="contact.html" class="btn">Hire me</a>
         </div>
     </section>
+
+    <script>
+    // Hamburger nav
+    function toggleNav(){
+        document.getElementById('nav-menu').classList.toggle('open');
+    }
+    document.querySelectorAll('#nav-menu a').forEach(function(link){
+        link.addEventListener('click', function(){
+            document.getElementById('nav-menu').classList.remove('open');
+        });
+    });
+
+    // JS typing animation — works on local files AND GitHub Pages
+    const words = ["Ethical Hacker", "Bug Hunter", "Penetration Tester", "Security Researcher"];
+    const el = document.getElementById('typed-text');
+    let wi = 0, ci = 0, deleting = false;
+
+    function type() {
+        const word = words[wi];
+        if (!deleting) {
+            el.textContent = word.substring(0, ci + 1);
+            ci++;
+            if (ci === word.length) {
+                deleting = true;
+                setTimeout(type, 1800);
+                return;
+            }
+        } else {
+            el.textContent = word.substring(0, ci - 1);
+            ci--;
+            if (ci === 0) {
+                deleting = false;
+                wi = (wi + 1) % words.length;
+            }
+        }
+        setTimeout(type, deleting ? 60 : 100);
+    }
+    type();
+    </script>
 </body>
 </html>

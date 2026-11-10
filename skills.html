@@ -3,11 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Skills of Hruthik — Ethical Hacker & VAPT Engineer: Networking, Ethical Hacking, Penetration Testing, Bug Hunting, API Testing and Android Security Testing.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Skills | Hruthik</title>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
+
+<div class="orb orb-green"></div>
+<div class="orb orb-crimson"></div>
 
 <header>
     <a href="index.html" class="logo">Hruthik</a>
@@ -29,38 +34,50 @@
 
 <section id="skills" class="skills" style="padding-top:12rem;">
 
-    <h2 class="heading">My <span>Skills</span></h2>
+    <h2 class="heading reveal">My <span>Skills</span></h2>
 
     <div class="skills-container">
 
-        <div class="skill-box">
+        <div class="skill-box reveal">
             <i class="fa-solid fa-network-wired"></i>
             <h3>Networking</h3>
+            <p>TCP/IP fundamentals, packet analysis, traffic inspection, Nmap scanning and network reconnaissance.</p>
+            <div class="skill-bar"><span class="skill-bar-fill" data-level="90"></span></div>
         </div>
 
-        <div class="skill-box">
+        <div class="skill-box reveal">
             <i class="fa-solid fa-user-secret"></i>
             <h3>Ethical Hacking</h3>
+            <p>OWASP Top 10, reconnaissance, vulnerability analysis, exploitation and professional reporting.</p>
+            <div class="skill-bar"><span class="skill-bar-fill" data-level="92"></span></div>
         </div>
 
-        <div class="skill-box">
+        <div class="skill-box reveal">
             <i class="fa-solid fa-shield-halved"></i>
             <h3>Penetration Testing</h3>
+            <p>End-to-end VAPT across web applications, infrastructure and network environments.</p>
+            <div class="skill-bar"><span class="skill-bar-fill" data-level="90"></span></div>
         </div>
 
-        <div class="skill-box">
+        <div class="skill-box reveal">
             <i class="fa-solid fa-bug"></i>
             <h3>Bug Hunting</h3>
+            <p>Recon automation, manual hunting on live programs, solid impact triage and clear reports.</p>
+            <div class="skill-bar"><span class="skill-bar-fill" data-level="88"></span></div>
         </div>
 
-        <div class="skill-box">
+        <div class="skill-box reveal">
             <i class="fa-solid fa-code"></i>
             <h3>API Testing</h3>
+            <p>Burp Suite & Postman workflows, IDOR/BOLA hunting, auth bypasses and business-logic abuse.</p>
+            <div class="skill-bar"><span class="skill-bar-fill" data-level="85"></span></div>
         </div>
 
-        <div class="skill-box">
+        <div class="skill-box reveal">
             <i class="fa-brands fa-android"></i>
             <h3>Android Testing</h3>
+            <p>APK reverse engineering, Frida hooking, insecure storage and traffic interception.</p>
+            <div class="skill-bar"><span class="skill-bar-fill" data-level="82"></span></div>
         </div>
 
     </div>
@@ -78,6 +95,7 @@ document.querySelectorAll('#nav-menu a').forEach(function(link){
     });
 });
 </script>
-
+<script src=bg.js></script>
+<script src=reveal.js></script>
 </body>
 </html>

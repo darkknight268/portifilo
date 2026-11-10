@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hall Of Fame | Hruthik</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hall of Fame — Hruthik recognized by 30+ organizations including Sony, HSBC, Lenovo, Broadcom, the United Nations and many more for responsible disclosure.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<title>Hall Of Fame | Hruthik</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
@@ -26,7 +28,6 @@ html{
 }
 
 body{
-    background:#000;
     color:white;
     overflow-x:hidden;
 }
@@ -50,7 +51,7 @@ header{
 .logo{
     font-size:2.6rem;
     font-weight:800;
-    color:#b74b4b;
+    color:#dc143c;
     white-space:nowrap;
     flex-shrink:0;
 }
@@ -74,8 +75,8 @@ nav a{
 
 nav a:hover,
 nav a.active{
-    color:#b74b4b;
-    border-bottom:3px solid #b74b4b;
+    color:#dc143c;
+    border-bottom:3px solid #dc143c;
 }
 
 /* HAMBURGER */
@@ -93,7 +94,7 @@ nav a.active{
     display:block;
     width:25px;
     height:3px;
-    background:#b74b4b;
+    background:#dc143c;
     border-radius:3px;
     transition:.3s ease;
     color:unset;
@@ -115,7 +116,7 @@ nav a.active{
 }
 
 .hero span{
-    color:#b74b4b;
+    color:#dc143c;
 }
 
 .hero p{
@@ -139,8 +140,8 @@ nav a.active{
 /* CARD — fixed: border is now 2px, hover adds border-color */
 
 .card{
-    background:#111;
-    border:2px solid rgba(183,75,75,0.2);
+    background:linear-gradient(145deg,#1c1c1e,#141416);
+    border:2px solid rgba(220,20,60,0.2);
     border-radius:2rem;
     padding:2.5rem;
     transition:.3s ease;
@@ -148,8 +149,8 @@ nav a.active{
 
 .card:hover{
     transform:translateY(-10px);
-    border-color:#b74b4b;
-    box-shadow:0 0 25px rgba(183,75,75,0.4);
+    border-color:#dc143c;
+    box-shadow:-12px 14px 34px rgba(0,0,0,0.55), 0 0 34px rgba(220,20,60,0.25), 10px -10px 34px rgba(192,199,209,0.18);
 }
 
 .title{
@@ -182,8 +183,8 @@ nav a.active{
 .badge{
     padding:.7rem 1.5rem;
     border-radius:5rem;
-    background:rgba(183,75,75,0.15);
-    color:#b74b4b;
+    background:rgba(220,20,60,0.12); border:1px solid rgba(220,20,60,0.35);
+    color:#dc143c;
     font-size:1.3rem;
     font-weight:600;
 }
@@ -192,17 +193,17 @@ nav a.active{
     display:inline-block;
     padding:1rem 2.5rem;
     border-radius:5rem;
-    border:2px solid #b74b4b;
-    color:#b74b4b;
+    border:2px solid #dc143c;
+    color:#dc143c;
     font-size:1.5rem;
     font-weight:600;
     transition:.3s ease;
 }
 
 .link:hover{
-    background:#b74b4b;
+    background:#dc143c;
     color:black;
-    box-shadow:0 0 25px #b74b4b;
+    box-shadow:0 0 25px #dc143c;
 }
 
 /* FOOTER */
@@ -256,7 +257,7 @@ footer{
         font-size:1.6rem;
         width:100%;
         padding-bottom:0.5rem;
-        border-bottom:1px solid rgba(183,75,75,0.2);
+        border-bottom:1px solid rgba(220,20,60,0.2);
     }
 
     nav a:last-child{
@@ -294,10 +295,158 @@ footer{
     .hero h1{ font-size:3.2rem; }
 }
 
+
+/* REVEAL + 3D AMBIENT */
+html, body{
+    background: radial-gradient(1100px 600px at 15% -10%, rgba(192,199,209,0.07), transparent 60%),
+                radial-gradient(900px 700px at 110% 25%, rgba(220,20,60,0.08), transparent 55%),
+                #0b0b0d;
+}
+.orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(95px);
+    z-index:0;
+    pointer-events:none;
+}
+.orb-green{
+    width:440px;height:440px;
+    background:rgba(192,199,209,0.16);
+    top:-140px;right:-120px;
+    animation:orbDrift 16s ease-in-out infinite;
+}
+.orb-crimson{
+    width:480px;height:480px;
+    background:rgba(220,20,60,0.13);
+    bottom:-160px;left:-140px;
+    animation:orbDrift 20s ease-in-out infinite reverse;
+}
+@keyframes orbDrift{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(48px,36px) scale(1.08);}
+}
+header,section{position:relative;z-index:1;}
+.reveal{
+    opacity:0;
+    transform:translateY(34px);
+    transition:opacity .8s ease, transform .8s ease;
+    will-change:opacity,transform;
+}
+.reveal.visible{opacity:1;transform:none;}
+.tilt{transform-style:preserve-3d;will-change:transform;}
+@media (prefers-reduced-motion: reduce){
+    .orb{animation:none !important;}
+}
+
+.card:nth-child(3n+2){transition-delay:.08s;}
+.card:nth-child(3n+3){transition-delay:.16s;}
+.writeup-card{transition-delay:.1s;}
+
+/* GLARE + CURSOR GLOW + DEEP 3D */
+
+.card, .writeup-card{
+    position:relative;
+    overflow:hidden;
+}
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    padding:2px;
+    background:linear-gradient(135deg, rgba(220,20,60,0.55), transparent 42%, transparent 58%, rgba(192,199,209,0.5));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:0;
+    transition:opacity .4s ease;
+    pointer-events:none;
+    z-index:1;
+}
+.writeup-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    padding:2px;
+    background:linear-gradient(135deg, rgba(220,20,60,0.55), transparent 42%, transparent 58%, rgba(192,199,209,0.5));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:0;
+    transition:opacity .4s ease;
+    pointer-events:none;
+    z-index:1;
+}
+.card::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-80%;
+    width:45%;
+    height:100%;
+    background:linear-gradient(105deg, transparent, rgba(255,255,255,0.07), transparent);
+    transform:skewX(-20deg);
+    transition:left .65s ease;
+    pointer-events:none;
+}
+.card:hover::before{opacity:1;}
+.card:hover::after{left:135%;}
+
+.glare{
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .35s ease;
+    z-index:2;
+    background:
+        radial-gradient(300px circle at var(--mx,50%) var(--my,50%), rgba(220,20,60,0.16), transparent 55%),
+        radial-gradient(420px circle at calc(100% - var(--mx,50%)) calc(100% - var(--my,50%)), rgba(192,199,209,0.12), transparent 60%);
+}
+.card:hover .glare, .writeup-card:hover .glare{opacity:1;}
+
+.cursor-glow{
+    position:fixed;
+    top:0;
+    left:0;
+    width:560px;
+    height:560px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:2;
+    mix-blend-mode:screen;
+}
+.glow-crimson{background:radial-gradient(circle, rgba(220,20,60,0.10), transparent 62%);}
+.glow-green{width:420px;height:420px;background:radial-gradient(circle, rgba(192,199,209,0.08), transparent 60%);}
+
+.reveal{
+    transform:translateY(40px) perspective(1000px) rotateX(9deg);
+    transform-origin:center top;
+}
+.reveal.visible{transform:none;}
+
+.hero span, .page-header span{
+    background:linear-gradient(120deg, #dc143c, #dbe2ea, #dc143c);
+    background-size:220% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:logoShift 6s linear infinite;
+}
+@keyframes logoShift{
+    0%{background-position:0% center;}
+    100%{background-position:200% center;}
+}
+
 </style>
 </head>
 
 <body>
+
+<div class="orb orb-green"></div>
+<div class="orb orb-crimson"></div>
 
 <header>
 
@@ -327,7 +476,7 @@ footer{
 <section class="hof-container">
 <div class="hof-grid">
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Lenovo — Responsible Disclosure (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Responsible Disclosure program via Bugcrowd</div>
   <div class="meta">
@@ -337,7 +486,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/lenovoresponsibledisclosure/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">HSBC VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
   <div class="meta">
@@ -348,7 +497,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/hsbc-vdp-pro/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Cengage VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
   <div class="meta">
@@ -359,7 +508,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/cengage-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">University of Melbourne VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
   <div class="meta">
@@ -369,7 +518,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/uni-melbourne-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">University of Canterbury VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd for the University of Canterbury</div>
   <div class="meta">
@@ -380,7 +529,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/university-canterbury-vdp-pro/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">AB InBev VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
   <div class="meta">
@@ -391,7 +540,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/abinbev-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Newfold Dreamscape VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
   <div class="meta">
@@ -401,7 +550,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/newfold-dreamscape-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">State of California VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program for the State of California via Bugcrowd</div>
   <div class="meta">
@@ -412,7 +561,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/cdt-vdp-pro/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">CIBC VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program acknowledgment via Bugcrowd</div>
   <div class="meta">
@@ -423,7 +572,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/cibc-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Square (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Bugcrowd program acknowledgment</div>
   <div class="meta">
@@ -433,7 +582,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/square/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Unilever VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd for Unilever</div>
   <div class="meta">
@@ -444,7 +593,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/unilever-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">NSF VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
   <div class="meta">
@@ -454,7 +603,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/nsf-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">FWS VDP (Bugcrowd)</div>
   <div class="desc">Hall of Fame — Vulnerability Disclosure Program via Bugcrowd</div>
   <div class="meta">
@@ -464,7 +613,7 @@ footer{
   <a class="link" href="https://bugcrowd.com/engagements/fws-vdp/hall_of_fames" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Sony (HackerOne)</div>
   <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
   <div class="meta">
@@ -475,7 +624,7 @@ footer{
   <a class="link" href="https://hackerone.com/sony/thanks/2026" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
     <div class="title">ServiceNow (HackerOne)</div>
     <div class="desc">Hall of Fame – Responsible Disclosure acknowledgment via HackerOne</div>
     <div class="meta">
@@ -486,7 +635,7 @@ footer{
     <a class="link" href="https://hackerone.com/servicenow-disclosure/thanks/2026" target="_blank">View Proof ↗</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
     <div class="title">Informatica (HackerOne)</div>
     <div class="desc">Hall of Fame – Responsible Disclosure acknowledgment via HackerOne</div>
     <div class="meta">
@@ -498,7 +647,7 @@ footer{
 </article>
     
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Allegion (HackerOne)</div>
   <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
   <div class="meta">
@@ -509,7 +658,7 @@ footer{
   <a class="link" href="https://hackerone.com/allegion/thanks/2026" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Itaú Unibanco (HackerOne)</div>
   <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
   <div class="meta">
@@ -519,7 +668,7 @@ footer{
   <a class="link" href="https://hackerone.com/itau_unibanco/thanks" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Luminor (HackerOne)</div>
   <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
   <div class="meta">
@@ -529,7 +678,7 @@ footer{
   <a class="link" href="https://hackerone.com/luminor/thanks" target="_blank">View Proof ↗</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Anywhere Real Estate (HackerOne)</div>
   <div class="desc">Hall of Fame — Responsible Disclosure acknowledgment via HackerOne</div>
   <div class="meta">
@@ -540,7 +689,7 @@ footer{
   <a class="link" href="https://hackerone.com/anywhererealestate/thanks/2026" target="_blank">View Proof ↗</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Broadcom</div>
   <div class="desc">Security Thanks & Recognition for responsible disclosure</div>
   <div class="meta">
@@ -550,7 +699,7 @@ footer{
   <a class="link" href="https://www.broadcom.com/support/security-center/security-thanks" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Bolt (bolt.earth)</div>
   <div class="desc">Hall of Fame — Bug Bounty program recognition</div>
   <div class="meta">
@@ -560,63 +709,63 @@ footer{
   <a class="link" href="https://bolt.earth/bug-bounty/hall-of-fame" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Accenture</div>
   <div class="desc">Disclosure acknowledgment</div>
   <div class="meta"><span class="badge">Consulting</span></div>
   <a class="link" href="https://accenture.responsibledisclosure.com/hc/en-us/articles/360040573233-Acknowledgments" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">BASF</div>
   <div class="desc">Disclosure Recognition</div>
   <div class="meta"><span class="badge">Corporate</span></div>
   <a class="link" href="https://www.basf.com/global/en/legal/responsible-disclosure-statement" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">F5 Networks</div>
   <div class="desc">Security acknowledgment</div>
   <div class="meta"><span class="badge">Vendor</span></div>
   <a class="link" href="https://my.f5.com/manage/s/article/K75282801" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">iFixit</div>
   <div class="desc">Acknowledged in the iFixit Responsible Disclosure Thanks list</div>
   <div class="meta"><span class="badge">Responsible Disclosure</span></div>
   <a class="link" href="https://www.ifixit.com/Info/Responsible_Disclosure#Section_Thanks" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">BT (British Telecom)</div>
   <div class="desc">Security Hall of Fame</div>
   <div class="meta"><span class="badge">Hall of Fame</span></div>
   <a class="link" href="https://www.bt.com/about/contact-bt/responsible-disclosure/hall-of-fame" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">University of Twente</div>
   <div class="desc">Cyber Safety HoF</div>
   <div class="meta"><span class="badge">University</span></div>
   <a class="link" href="https://www.utwente.nl/en/cyber-safety/responsible/hall-of-fame/" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">TU Delft</div>
   <div class="desc">Responsible disclosure</div>
   <div class="meta"><span class="badge">University</span></div>
   <a class="link" href="https://www.tudelft.nl/en/hall-of-fame" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">United Nations</div>
   <div class="desc">UN Hall of Fame</div>
   <div class="meta"><span class="badge">UN</span></div>
   <a class="link" href="https://unite.un.org/en/un-information-security-hall-fame" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">U.S. Department of Health and Human Services (HHS)</div>
   <div class="desc">Valid vulnerabilities responsibly disclosed and acknowledged by the U.S. Department of Health and Human Services</div>
   <div class="meta">
@@ -627,14 +776,14 @@ footer{
   <a class="link" href="https://hhs.responsibledisclosure.com/hc/en-us/articles/1500000280921-Acknowledgments" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">Coret Genealogie</div>
   <div class="desc">Responsible Disclosure acknowledgment</div>
   <div class="meta"><span class="badge">Responsible Disclosure</span></div>
   <a class="link" href="https://genealogie.coret.org/en/beleid/responsible_disclosure.php" target="_blank">View Proof →</a>
 </article>
 
-<article class="card">
+<article class="card reveal">
   <div class="title">CERT-EU</div>
   <div class="desc">EU CERT HoF</div>
   <div class="meta"><span class="badge">CERT</span></div>
@@ -657,6 +806,7 @@ document.querySelectorAll('#nav-menu a').forEach(function(link){
     });
 });
 </script>
-
+<script src=bg.js></script>
+<script src=reveal.js></script>
 </body>
 </html>

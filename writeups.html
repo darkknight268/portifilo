@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Security writeups by Hruthik — vulnerability research, exploitation and real-world findings.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <title>Writeups | Hruthik</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -26,7 +28,6 @@ html{
 }
 
 body{
-    background:black;
     color:white;
     overflow-x:hidden;
 }
@@ -50,7 +51,7 @@ header{
 .logo{
     font-size:2.6rem;
     font-weight:800;
-    color:#b74b4b;
+    color:#dc143c;
     white-space:nowrap;
     flex-shrink:0;
 }
@@ -74,8 +75,8 @@ nav a{
 
 nav a:hover,
 nav a.active{
-    color:#b74b4b;
-    border-bottom:3px solid #b74b4b;
+    color:#dc143c;
+    border-bottom:3px solid #dc143c;
 }
 
 /* HAMBURGER */
@@ -93,7 +94,7 @@ nav a.active{
     display:block;
     width:25px;
     height:3px;
-    background:#b74b4b;
+    background:#dc143c;
     border-radius:3px;
     transition:.3s ease;
     color:unset;
@@ -115,7 +116,7 @@ nav a.active{
 }
 
 .page-header span{
-    color:#b74b4b;
+    color:#dc143c;
 }
 
 .page-header p{
@@ -134,8 +135,8 @@ nav a.active{
 }
 
 .writeup-card{
-    background:#111;
-    border:2px solid rgba(183,75,75,0.2);
+    background:linear-gradient(145deg,#1c1c1e,#141416);
+    border:2px solid rgba(220,20,60,0.2);
     border-radius:2rem;
     padding:3rem;
     transition:0.3s ease;
@@ -143,13 +144,13 @@ nav a.active{
 
 .writeup-card:hover{
     transform:translateY(-10px);
-    border-color:#b74b4b;
-    box-shadow:0 0 25px rgba(183,75,75,0.4);
+    border-color:#dc143c;
+    box-shadow:-12px 14px 34px rgba(0,0,0,0.55), 0 0 34px rgba(220,20,60,0.25), 10px -10px 34px rgba(192,199,209,0.18);
 }
 
 .writeup-card i{
     font-size:5rem;
-    color:#b74b4b;
+    color:#dc143c;
     margin-bottom:2rem;
 }
 
@@ -169,17 +170,17 @@ nav a.active{
     display:inline-block;
     padding:1rem 2.5rem;
     border-radius:5rem;
-    border:2px solid #b74b4b;
-    color:#b74b4b;
+    border:2px solid #dc143c;
+    color:#dc143c;
     font-size:1.5rem;
     font-weight:600;
     transition:0.3s ease;
 }
 
 .writeup-card a.read-link:hover{
-    background:#b74b4b;
+    background:#dc143c;
     color:black;
-    box-shadow:0 0 25px #b74b4b;
+    box-shadow:0 0 25px #dc143c;
 }
 
 /* FOOTER */
@@ -233,7 +234,7 @@ footer{
         font-size:1.6rem;
         width:100%;
         padding-bottom:0.5rem;
-        border-bottom:1px solid rgba(183,75,75,0.2);
+        border-bottom:1px solid rgba(220,20,60,0.2);
     }
 
     nav a:last-child{
@@ -268,11 +269,155 @@ footer{
     .page-header h1{ font-size:3.2rem; }
 }
 
+
+/* REVEAL + 3D AMBIENT */
+html, body{
+    background: radial-gradient(1100px 600px at 15% -10%, rgba(192,199,209,0.07), transparent 60%),
+                radial-gradient(900px 700px at 110% 25%, rgba(220,20,60,0.08), transparent 55%),
+                #0b0b0d;
+}
+.orb{
+    position:fixed;
+    border-radius:50%;
+    filter:blur(95px);
+    z-index:0;
+    pointer-events:none;
+}
+.orb-green{
+    width:440px;height:440px;
+    background:rgba(192,199,209,0.16);
+    top:-140px;right:-120px;
+    animation:orbDrift 16s ease-in-out infinite;
+}
+.orb-crimson{
+    width:480px;height:480px;
+    background:rgba(220,20,60,0.13);
+    bottom:-160px;left:-140px;
+    animation:orbDrift 20s ease-in-out infinite reverse;
+}
+@keyframes orbDrift{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(48px,36px) scale(1.08);}
+}
+header,section{position:relative;z-index:1;}
+.reveal{
+    opacity:0;
+    transform:translateY(34px);
+    transition:opacity .8s ease, transform .8s ease;
+    will-change:opacity,transform;
+}
+.reveal.visible{opacity:1;transform:none;}
+.tilt{transform-style:preserve-3d;will-change:transform;}
+@media (prefers-reduced-motion: reduce){
+    .orb{animation:none !important;}
+}
+
+/* GLARE + CURSOR GLOW + DEEP 3D */
+
+.card, .writeup-card{
+    position:relative;
+    overflow:hidden;
+}
+.card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    padding:2px;
+    background:linear-gradient(135deg, rgba(220,20,60,0.55), transparent 42%, transparent 58%, rgba(192,199,209,0.5));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:0;
+    transition:opacity .4s ease;
+    pointer-events:none;
+    z-index:1;
+}
+.writeup-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    padding:2px;
+    background:linear-gradient(135deg, rgba(220,20,60,0.55), transparent 42%, transparent 58%, rgba(192,199,209,0.5));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:0;
+    transition:opacity .4s ease;
+    pointer-events:none;
+    z-index:1;
+}
+.card::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-80%;
+    width:45%;
+    height:100%;
+    background:linear-gradient(105deg, transparent, rgba(255,255,255,0.07), transparent);
+    transform:skewX(-20deg);
+    transition:left .65s ease;
+    pointer-events:none;
+}
+.card:hover::before{opacity:1;}
+.card:hover::after{left:135%;}
+
+.glare{
+    position:absolute;
+    inset:0;
+    border-radius:inherit;
+    pointer-events:none;
+    opacity:0;
+    transition:opacity .35s ease;
+    z-index:2;
+    background:
+        radial-gradient(300px circle at var(--mx,50%) var(--my,50%), rgba(220,20,60,0.16), transparent 55%),
+        radial-gradient(420px circle at calc(100% - var(--mx,50%)) calc(100% - var(--my,50%)), rgba(192,199,209,0.12), transparent 60%);
+}
+.card:hover .glare, .writeup-card:hover .glare{opacity:1;}
+
+.cursor-glow{
+    position:fixed;
+    top:0;
+    left:0;
+    width:560px;
+    height:560px;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:2;
+    mix-blend-mode:screen;
+}
+.glow-crimson{background:radial-gradient(circle, rgba(220,20,60,0.10), transparent 62%);}
+.glow-green{width:420px;height:420px;background:radial-gradient(circle, rgba(192,199,209,0.08), transparent 60%);}
+
+.reveal{
+    transform:translateY(40px) perspective(1000px) rotateX(9deg);
+    transform-origin:center top;
+}
+.reveal.visible{transform:none;}
+
+.hero span, .page-header span{
+    background:linear-gradient(120deg, #dc143c, #dbe2ea, #dc143c);
+    background-size:220% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    animation:logoShift 6s linear infinite;
+}
+@keyframes logoShift{
+    0%{background-position:0% center;}
+    100%{background-position:200% center;}
+}
+
 </style>
 
 </head>
 
 <body>
+
+<div class="orb orb-green"></div>
+<div class="orb orb-crimson"></div>
 
 <header>
 
@@ -301,7 +446,7 @@ footer{
 
 <section class="writeups-container">
 
-    <div class="writeup-card">
+    <div class="writeup-card reveal">
         <i class="fa-solid fa-bug"></i>
         <h2>The XSS That Wasn't There Until I Turned Back</h2>
         <p>A detailed writeup of a unique reflected XSS vulnerability involving back-navigation behavior and browser caching.</p>
@@ -324,6 +469,7 @@ document.querySelectorAll('#nav-menu a').forEach(function(link){
     });
 });
 </script>
-
+<script src=bg.js></script>
+<script src=reveal.js></script>
 </body>
 </html>
